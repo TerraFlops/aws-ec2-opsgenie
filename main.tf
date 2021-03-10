@@ -96,7 +96,7 @@ resource "opsgenie_integration_action" "alarm" {
     ignore_responders_from_payload = true
     entity = var.opsgenie_entity
     user = var.opsgenie_user
-    tags = unionset(toset([
+    tags = setunion(toset([
       "EC2",
       var.metric_name
     ]), var.opsgenie_tags)
